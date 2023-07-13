@@ -1,0 +1,37 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AddAllowPutObjectToFolder01Policy",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::{ACCOUNT_ID}:user/{USER_ID}"
+                ]
+            },
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::lab-edu-s3-{ACCOUNT_ID}/folder-01/",
+                "arn:aws:s3:::lab-edu-s3-{ACCOUNT_ID}/folder-01/*"
+            ]
+        },
+        {
+            "Sid": "AddDenyPutObjectToFolder02Policy",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::{ACCOUNT_ID}:user/{USER_ID}"
+                ]
+            },
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::lab-edu-s3-{ACCOUNT_ID}/folder-02/",
+                "arn:aws:s3:::lab-edu-s3-{ACCOUNT_ID}/folder-02/*"
+            ]
+        }
+    ]
+}
